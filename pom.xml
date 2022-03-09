@@ -77,21 +77,15 @@
 		</dependency>
 
 	</dependencies>
-
+<repositories>
 	<repository>
 		<id>central</id>
 		<name>bintray</name>
 		<url>https://jcenter.bintray.com</url>
 	</repository>
+</repositories>
 
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
+
 
 </project>
