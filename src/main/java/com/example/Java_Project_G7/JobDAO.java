@@ -5,18 +5,21 @@ import org.apache.spark.sql.Row;
 
 public interface JobDAO {
 
+    public  Dataset<Row> readData_Spark();
 
     public void readcsv();
 
     public void displayHeader();
 
-    public void dfStructure();
+    public String dfStructure(Dataset<Row> Data);
 
-    public void dataSummary();
+    public String dataSummary(Dataset<Row> Data);
 
-    public void removeDuplicate();
+    public void dataDiscribee(Dataset<Row> Data);
 
-    public void removeNull();
+    public Dataset<Row> removeDuplicate(Dataset<Row> Data);
+
+    public Dataset<Row> removeNull(Dataset<Row> Data);
 
     public void count_jobs_company();
 
