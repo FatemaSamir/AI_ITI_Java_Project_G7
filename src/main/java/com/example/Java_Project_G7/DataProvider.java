@@ -1,6 +1,8 @@
 package com.example.Java_Project_G7;
 
 import joinery.DataFrame;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
 import java.io.IOException;
@@ -18,13 +20,20 @@ public class DataProvider implements JobDAO{
 //    {
 //        this.path = path;
 //    }
-
-    public static void main(String[] args) {
+    public static void main(String []args) throws IOException {
         DataProvider p = new DataProvider( );
+        Visualize v = new Visualize ();
         p.readcsv();
         p.displayHeader();
         p.dfStructure();
         p.count_jobs_company();
+        v.drawPieChartjobs();
+        v.drawBarChartArea();
+        v.drawBarChartjobs();
+
+
+
+
 
     }
 
@@ -33,7 +42,7 @@ public class DataProvider implements JobDAO{
     public  void readcsv() {
 
         System.out.println("==================Starting reading csv file==================");
-         ;
+
         if (path != null)
         {
             try {
