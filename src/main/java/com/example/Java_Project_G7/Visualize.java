@@ -2,12 +2,20 @@ package com.example.Java_Project_G7;
 
 import com.aol.cyclops.control.LazyReact;
 import joinery.DataFrame;
+import org.knowm.xchart.PieChart;
 import org.knowm.xchart.*;
 
 import java.io.IOException;
-import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+
 
 public class Visualize {
 
@@ -20,12 +28,15 @@ public class Visualize {
 
 
     public Visualize() throws IOException {
-       this.df = DataFrame.readCsv(path);
+        this.df = DataFrame.readCsv(path);
 
 
     }
 
-    public  void  drawPieChartjobs() throws IOException {
+
+
+//   4. function Count the jobs for each company and display that in order
+    public LinkedHashMap<String, Long> SortedCompinesCount(){
 
 
         //Task 4: Code to get most demanding Companies.
@@ -58,7 +69,14 @@ public class Visualize {
         }
 
         System.out.println(sep);
+        return sortedCompanies; 
 
+    }
+    // Function Get Piechart most demanding companies for jobs
+    public  void  drawPieChartjobs( ) throws IOException {
+
+
+        LinkedHashMap<String, Long> sortedCompanies = SortedCompinesCount();
         List<String> Company_counter_keys = new ArrayList<>(sortedCompanies.keySet());
 
         List<String> Company_keys_chart = new ArrayList<>();
@@ -88,9 +106,9 @@ public class Visualize {
     //End of Task 5.
 
 
-
-
-    public  void drawBarChartjobs() throws IOException {
+//  6 6.	Find out what are the most popular job titles.
+    
+    public LinkedHashMap<String, Long> GetMostPopularJobsTitle(){
         //Task 6: Code to get most popular Title.
         List<Object> Title = df.col("Title");
         List<String> Title_String = LazyReact.sequentialBuilder()
@@ -101,7 +119,7 @@ public class Visualize {
         Map<String, Long> Title_counter = Title_String.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
-
+        // sorted titles has title of job and count 
         LinkedHashMap<String, Long> sortedTitles = new LinkedHashMap<>();
 
         Title_counter.entrySet()
@@ -121,6 +139,13 @@ public class Visualize {
             }
         }
         System.out.println(sep);
+        return sortedTitles ;
+
+
+    }
+
+    public  void drawBarChartjobs() throws IOException {
+        LinkedHashMap<String, Long> sortedTitles = GetMostPopularJobsTitle();
 
         List<Long> Title_counter_values = new ArrayList<>(sortedTitles.values());
         List<Double> double_values = Title_counter_values.stream()
@@ -134,8 +159,8 @@ public class Visualize {
         List<String> Title_keys_chart = new ArrayList<>();
         List<Double> vals_chart = new ArrayList<>();
 
-        Title_keys_chart = Title_counter_keys.subList(0, 5);
-        vals_chart = double_values_arr.subList(0, 5);
+        Title_keys_chart = Title_counter_keys.subList(0, 4);
+        vals_chart = double_values_arr.subList(0, 4);
 
         CategoryChart chart = new CategoryChartBuilder().width(800).height(600).title("Bar Chart").xAxisTitle("Jobs").yAxisTitle("Demands").build();
         chart.getStyler().setHasAnnotations(true);
@@ -152,7 +177,11 @@ public class Visualize {
 
 
     //Task 8: Code to get most popular Area
-    public  void drawBarChartArea() {
+
+    // 8.	 function Get Find out the most popular areas
+
+    public LinkedHashMap<String, Long> GetMostPopularArea(){
+
         List<Object> Area = this.df.col("Location");
         List<String> Area_String = LazyReact.sequentialBuilder()
                 .from(Area)
@@ -181,6 +210,10 @@ public class Visualize {
             }
         }
         System.out.println(sep);
+        return sortedAreas;
+    }
+    public  void drawBarChartArea() {
+        LinkedHashMap<String, Long> sortedAreas = GetMostPopularArea();
 
         List<Long> Area_counter_values = new ArrayList<>(sortedAreas.values());
         List<Double> Area_double_values = Area_counter_values.stream()
@@ -209,10 +242,8 @@ public class Visualize {
 
 
     }
-    //End of task 8
+    //End of task 9
 
 
 
 }
-
-
