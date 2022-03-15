@@ -21,11 +21,6 @@ public interface JobDAO {
 
     public Dataset<Row> removeNull(Dataset<Row> Data);
 
-    public void count_jobs_company();
-
-    public void most_demanding_comp();
-
-
 
 
 
