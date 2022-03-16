@@ -1,5 +1,5 @@
 package com.example.Java_Project_G7;
-//implemented by
+
 // Author : --- Fatema Samir ---
 public class TableBuilder {
 
@@ -23,6 +23,7 @@ public class TableBuilder {
             "    }";
 
 // "style="border:1px solid black;margin-left:auto;margin-right:auto;" to be in center
+
         /**
          * @param header
          * @param border
@@ -46,7 +47,7 @@ public class TableBuilder {
         public TableBuilder(){
 
         }
-//    implemented by
+
 //    Author : --- Fatema Samir ---
     public String mainPage(){
 return
@@ -95,7 +96,7 @@ return
         "</head>\n" +
         "<body>\n" +
         "\n" +
-        "<h1 style=\"text-align:center\" >Welcome To Our Project Wuzzuf Jobs Analysis Group G </h1>\n" +
+        "<h1 style=\"text-align:center\" >Welcome To Our Project Wuzzuf Jobs Analysis Group 7 </h1>\n" +
         "\n" +
         "\n" +
                 "<div class=\"wrapper\">"+
@@ -110,9 +111,11 @@ return
         "<button onclick=\"location.href = '/DrawBarChartJobs'\" class=\"button button2\">Bar chart popular job titles </button>\n" +
         "<button onclick=\"location.href = '/Most_popular_locations'\" class=\"button button1\">popular Areas</button>\n" +
         "<button onclick=\"location.href = '/DrawBarChartAreas'\" class=\"button button2\">Bar chart popular Areas</button>\n" +
-        "<button onclick=\"location.href = '/Mostpopulerskills'\" class=\"button button1\">Most Important Skills</button>\n" +
+        "<button onclick=\"location.href = '/Mostpopulerskills'\" class=\"button button1\">Most Frequent Skills</button>\n" +
         "<button onclick=\"location.href = '/DataAfterFactorize'\" class=\"button button2\">Factorize the YearsExp</button>\n" +
-        " \n" +
+                "<button onclick=\"location.href = '/K_Means '\" class=\"button button1\">K Means</button>\n" +
+
+                " \n" +
                 "</div>"+
         "\n" +
         "\n" +
@@ -149,7 +152,7 @@ return
          */
         public void addRowValues(String... values) {
             if (values.length != columns) {
-                System.out.println("Error column lenth");
+                System.out.println("Error column length");
             } else {
                 int lastIndex = table.lastIndexOf(ROW_END);
                 if (lastIndex > 0) {

@@ -39,6 +39,10 @@ public class Test_Web_Service {
     public String ShowSchema(){
         return  p.dataSummary(DataFrame);
     }
+    @GetMapping("/ShowDiscribe")
+    public String ShowDiscribe(){
+        return  p.dataDiscribee(DataFrame);
+    }
 
 
 
@@ -137,11 +141,19 @@ public class Test_Web_Service {
 
     @GetMapping("/DataAfterFactorize")
     public String Data_after_Factorize(){
-        Dataset<Row> data = p.factorizeYearsExp();
+        Dataset<Row> data = p.factorizeYearsExp(DataFrame);
         List<Row > f = data.limit(20).collectAsList();
-        return Htmlshow.displayrows(data.columns(), f);
+        data.printSchema();
+        return Htmlshow.displayrows_fact(data.columns(), f);
 
     }
 
 
+
+    @GetMapping("/K_Means")
+    public String K_means(){
+
+        return " Hi, Not Done Yet";
+
+    }
 }

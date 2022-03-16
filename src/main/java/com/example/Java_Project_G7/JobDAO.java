@@ -20,7 +20,7 @@ public interface JobDAO {
 
     public String dataSummary(Dataset<Row> Data);
 
-    public void dataDiscribee(Dataset<Row> Data);
+    public String dataDiscribee(Dataset<Row> Data);
 
     public Dataset<Row> removeDuplicate(Dataset<Row> Data);
 
@@ -39,7 +39,7 @@ public interface JobDAO {
 
     public List<Map.Entry> Most_pop_Skills(Dataset<Row> Data);
 
-    public Dataset<Row> factorizeYearsExp();
+    public Dataset<Row> factorizeYearsExp(Dataset<Row> Data);
 
 
 

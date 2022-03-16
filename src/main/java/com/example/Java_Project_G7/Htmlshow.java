@@ -21,6 +21,7 @@ public class Htmlshow {
         builder=new TableBuilder(null,true,3,head.length);
         builder.addTableHeader(head);
         for (Row r : ls) {
+
             String[] s = r.toString().replace("[","").replace("]","")
                     .split(",", head.length);
             builder.addRowValues(s);
@@ -31,7 +32,20 @@ public class Htmlshow {
 
     }
 
+    public static String displayrows_fact(String []head, List<Row> ls){
 
+        builder=new TableBuilder(null,true,3,head.length);
+        builder.addTableHeader(head);
+        for (Row r : ls) {
+            String[] s  = new String[r.size()];
+            for (int i =0 ;i< r.size();i++){
+                s[i] = r.get(i).toString();}
+                builder.addRowValues(s);
+        }
+        return builder.build();
+
+
+    }
 
     public static String Skills(String []head, List<Map.Entry> ls){
 

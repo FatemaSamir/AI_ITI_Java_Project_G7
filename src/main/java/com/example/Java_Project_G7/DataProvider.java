@@ -45,9 +45,10 @@ public class DataProvider implements JobDAO {
 
         DataProvider p = new DataProvider();
         Dataset<Row> DataFrame = p.readData_Spark();
+        p.dataDiscribee(DataFrame);
 //        p.dfStructure()
 //        p.Most_pop_Skills(DataFrame);
-       p.readcsv();
+//       p.readcsv();
 //        p.displayHeader();
 //        p.dfStructure();
 //        p.count_jobs_company();
@@ -57,8 +58,8 @@ public class DataProvider implements JobDAO {
 //p.removeNull(DataFrame);
 //        p.CleanData(DataFrame);
 
-        p.factorizeYearsExp();
-        p.kmeanAlgorithm();
+//        p.factorizeYearsExp();
+//        p.kmeanAlgorithm();
 
     }
 
@@ -129,7 +130,7 @@ public class DataProvider implements JobDAO {
     @Override
     public String dataSummary(Dataset<Row> Data) {
 
-        System.out.println("All Data is text can't do summary statistic on it!");
+//        System.out.println("All Data is text can't do summary statistic on it!");
 
         Dataset<Row> d = Data.summary();
         List<Row> summary = d.collectAsList();
@@ -137,10 +138,13 @@ public class DataProvider implements JobDAO {
     }
 
     @Override
-    public void dataDiscribee(Dataset<Row> Data) {
+    public String dataDiscribee(Dataset<Row> Data) {
         // implemented by fatema samir
         System.out.println("============================================= Describe =============================================");
         Data.describe().show();
+        Dataset<Row> d = Data.describe();
+        List<Row> summary = d.collectAsList();
+        return Htmlshow.displayrows(d.columns(), summary);
 
     }
 
@@ -430,7 +434,7 @@ public class DataProvider implements JobDAO {
     //*********************************************************************//
     @Override
     public List<Map.Entry> Most_pop_Skills(Dataset<Row> Data) {
-// implemented by FatemaSamir
+
 
 // Clean Data First
         DataProvider p = new DataProvider();
@@ -467,11 +471,12 @@ public class DataProvider implements JobDAO {
     //***************************Question 11 *******************************//
     //*********************************************************************//
     @Override
-    public  Dataset<Row> factorizeYearsExp() {
+    public  Dataset<Row> factorizeYearsExp(Dataset<Row> Data) {
 
         List<Row> yearsExp = new LinkedList<>();
         List<String> years = new LinkedList<>();
-        Dataset<Row> data = readData_Spark();
+//        Dataset<Row> data = readData_Spark();
+        Dataset<Row> data = Data;
         List<Row> rows = data.collectAsList();
         for(Row r : rows){
             String[] s = r.toString().replace("[","").replace("]","")
@@ -511,7 +516,7 @@ public class DataProvider implements JobDAO {
 
         data = data.join(Df);
         data = data.drop("YearsExp");
-        data.show();
+        System.out.println(data.tail(30));
 
         return  data;
     }
