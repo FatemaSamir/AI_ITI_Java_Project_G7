@@ -78,16 +78,23 @@
 			</exclusions>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>org.apache.spark</groupId>-->
+<!--			<artifactId>spark-mllib_2.10</artifactId>-->
+<!--			<version>1.6.1</version>-->
+<!--		</dependency>-->
+
+
 		<dependency>
 			<groupId>org.apache.spark</groupId>
 			<artifactId>spark-mllib_2.12</artifactId>
 			<version>3.0.1</version>
-			<exclusions>
-				<exclusion>
-					<groupId>org.codehaus.janino</groupId>
-					<artifactId>janino</artifactId>
-				</exclusion>
-			</exclusions>
+<!--			<exclusions>-->
+<!--				<exclusion>-->
+<!--					<groupId>org.codehaus.janino</groupId>-->
+<!--					<artifactId>janino</artifactId>-->
+<!--				</exclusion>-->
+<!--			</exclusions>-->
 
 		</dependency>
 
