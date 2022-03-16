@@ -9,7 +9,10 @@ import java.io.IOException;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
-
+/*
+implemented by
+Author : --- Fatema Samir ---
+        */
 public class Htmlshow {
     private static TableBuilder builder ;
 
@@ -43,25 +46,6 @@ public class Htmlshow {
 
 
     }
-    public static String viewchart(String path){
 
-        FileInputStream img ;
-        try {
-            File f= new File(path);
-            img = new FileInputStream(f);
-            byte[] bytes =  new byte[(int)f.length()];
-            img.read(bytes);
-            String encodedfile = new String(Base64.encodeBase64(bytes) , "UTF-8");
-
-            return "<div>" +
-                    "<img src=\"data:image/png;base64, "+encodedfile+"\" alt=\"Red dot\" />" +
-                    "</div>";
-        } catch (IOException e) {
-            return "error";
-        }
-
-
-
-    }
 
 }

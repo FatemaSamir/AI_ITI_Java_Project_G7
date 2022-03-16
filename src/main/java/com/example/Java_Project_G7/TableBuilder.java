@@ -1,5 +1,6 @@
 package com.example.Java_Project_G7;
-
+//implemented by
+// Author : --- Fatema Samir ---
 public class TableBuilder {
 
 
@@ -16,8 +17,12 @@ public class TableBuilder {
         public static String ROW_END = "</tr>";
         public static String COLUMN_START = "<td>";
         public static String COLUMN_END = "</td>";
+    public static String CenterTable ="    table.center {\n" +
+            "        margin-left: auto;\n" +
+            "        margin-right: auto;\n" +
+            "    }";
 
-
+// "style="border:1px solid black;margin-left:auto;margin-right:auto;" to be in center
         /**
          * @param header
          * @param border
@@ -41,7 +46,8 @@ public class TableBuilder {
         public TableBuilder(){
 
         }
-
+//    implemented by
+//    Author : --- Fatema Samir ---
     public String mainPage(){
 return
         "<html>\n" +
@@ -89,21 +95,21 @@ return
         "</head>\n" +
         "<body>\n" +
         "\n" +
-        "<h1 style=\"text-align:center\" >Welcome To Our Project Wuzzuf Jobs Analysis </h1>\n" +
+        "<h1 style=\"text-align:center\" >Welcome To Our Project Wuzzuf Jobs Analysis Group G </h1>\n" +
         "\n" +
         "\n" +
                 "<div class=\"wrapper\">"+
         "<button onclick=\"location.href = '/ShowStructure'\" class=\"button button2\">Display structure</button>\n" +
         "<button onclick=\"location.href = '/ShowSummary'\" class=\"button button1\">Display Summary</button>\n" +
         "\n" +
-        "<button  onclick=\"location.href = '/ShowCleanedData'\" class=\"button button1\">Display Dataset</button>\n" +
-        "<button onclick=\"location.href = '/ShowData'\" class=\"button button2\">Clean the Data</button>\n" +
-        "<button onclick=\"location.href = '/ShowData'\" class=\"button button1\">Most Demanding Companies</button>\n" +
-        "<button onclick=\"location.href = '/ShowData'\" class=\"button button2\">pie chart Most Companies</button>\n" +
-        "<button onclick=\"location.href = '/ShowData'\" class=\"button button1\">popular job titles</button>\n" +
-        "<button onclick=\"location.href = '/ShowData'\" class=\"button button2\">Bar chart popular job titles </button>\n" +
-        "<button onclick=\"location.href = '/ShowData'\" class=\"button button1\">popular Areas</button>\n" +
-        "<button onclick=\"location.href = '/ShowData'\" class=\"button button2\">Bar chart popular Areas</button>\n" +
+        "<button  onclick=\"location.href = '/ShowData'\" class=\"button button1\">Display Dataset</button>\n" +
+        "<button onclick=\"location.href = '/ShowCleanedData'\" class=\"button button2\">Clean the Data</button>\n" +
+        "<button onclick=\"location.href = '/Most_demanding_companies_for_jobs'\" class=\"button button1\">Most Demanding Companies</button>\n" +
+        "<button onclick=\"location.href = '/drawPieChartjobs'\" class=\"button button2\">pie chart Most Companies</button>\n" +
+        "<button onclick=\"location.href = '/Most_popular_job_titles'\" class=\"button button1\">popular job titles</button>\n" +
+        "<button onclick=\"location.href = '/DrawBarChartJobs'\" class=\"button button2\">Bar chart popular job titles </button>\n" +
+        "<button onclick=\"location.href = '/Most_popular_locations'\" class=\"button button1\">popular Areas</button>\n" +
+        "<button onclick=\"location.href = '/DrawBarChartAreas'\" class=\"button button2\">Bar chart popular Areas</button>\n" +
         "<button onclick=\"location.href = '/Mostpopulerskills'\" class=\"button button1\">Most Important Skills</button>\n" +
         "<button onclick=\"location.href = '/DataAfterFactorize'\" class=\"button button2\">Factorize the YearsExp</button>\n" +
         " \n" +

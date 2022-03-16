@@ -6,15 +6,9 @@ import org.knowm.xchart.PieChart;
 import org.knowm.xchart.*;
 
 import java.io.IOException;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
 
 
 public class Visualize {
@@ -68,8 +62,11 @@ public class Visualize {
             }
         }
 
-        System.out.println(sep);
-        return sortedCompanies; 
+        Map<String, Long> TopsortedCompanies = new HashMap<>();
+
+
+//        System.out.println(sep);
+        return sortedCompanies;
 
     }
     // Function Get Piechart most demanding companies for jobs

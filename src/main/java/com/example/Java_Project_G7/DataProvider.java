@@ -21,7 +21,7 @@ import java.util.stream.Collectors;
 import org.apache.spark.mllib.clustering.KMeansModel;
 import org.apache.spark.mllib.clustering.KMeans;
 
-//import org.apache.log4j.Level;
+// import org.apache.log4j.Level;
 //import org.apache.log4j.Logger;
 
 import org.apache.spark.mllib.linalg.Vectors;
@@ -177,12 +177,14 @@ public class DataProvider implements JobDAO {
         Dataset<Row> Delet_null = Data.na().drop();
         Dataset<Row> CleanData = Delet_null.distinct();
 //       Dataset<Row> dubl = Data.dropDuplicates();
-        DataFrameWriter dataFrameWriter = new DataFrameWriter<>(CleanData);
+        // Save Data After Cleaned
+//        DataFrameWriter dataFrameWriter = new DataFrameWriter<>(CleanData);
 //        dataFrameWriter.option("sep",",").option("header","true").csv("src/main/resources/Wuzzuf_Jobs_Cleand.csv");
 //        CleanData.write().csv("src/main/resources/Wuzzuf_Jobs_Cleand.csv");
 
         return CleanData;
     }
+
 
     //*********************************************************************//
     //***************************Question 4(a) *******************************//
@@ -428,6 +430,7 @@ public class DataProvider implements JobDAO {
     //*********************************************************************//
     @Override
     public List<Map.Entry> Most_pop_Skills(Dataset<Row> Data) {
+// implemented by FatemaSamir
 
 // Clean Data First
         DataProvider p = new DataProvider();
@@ -448,14 +451,15 @@ public class DataProvider implements JobDAO {
                 .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder())).collect(Collectors.toList());
 
 
-        // DISPLAY
-        for (Map.Entry<String, Long> entry : sorted) {
-            System.out.println(entry.getKey() + " : " + entry.getValue());
-        }
+//         // DISPLAY
+//         for (Map.Entry<String, Long> entry : sorted) {
+//             System.out.println(entry.getKey() + " : " + entry.getValue());
+//         }
 
         return sorted.stream().limit(30).collect(Collectors.toList());
 
-    }
+
+  }
 
 
 
