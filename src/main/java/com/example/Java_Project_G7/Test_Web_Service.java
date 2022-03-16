@@ -87,9 +87,9 @@ public class Test_Web_Service {
         return Htmlshow.Skills(new String[]{"Areas", "Count"},sortedAreas.entrySet().stream().limit(10).collect(Collectors.toList()));
     }
 
+
+
     @GetMapping("/drawPieChartjobs")
-
-
     public ResponseEntity<byte[]> drawPieChartjobs() throws IOException {
 
         Visualize v = new Visualize ();
@@ -120,8 +120,6 @@ public class Test_Web_Service {
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(image);}
 
     @GetMapping("/DrawBarChartJobs")
-
-
     public ResponseEntity<byte[]> getBarChartJobs() throws IOException {
 
         Visualize v = new Visualize ();
@@ -139,6 +137,11 @@ public class Test_Web_Service {
 
     @GetMapping("/DataAfterFactorize")
     public String Data_after_Factorize(){
-        return "hi           ";
+        Dataset<Row> data = p.factorizeYearsExp();
+        List<Row > f = data.limit(20).collectAsList();
+        return Htmlshow.displayrows(data.columns(), f);
+
     }
+
+
 }
