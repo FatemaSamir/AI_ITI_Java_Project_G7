@@ -1,8 +1,6 @@
 # AI_ITI_Java_Project_G7
 
-# Data Set:
-Wuzzuf jobs in Egypt data set at Kaggle
-https://www.kaggle.com/omarhanyy/wuzzuf-jobs
+
 
 Task: 
 •	Build all java needed classes (POJO , DAO, web service and a tester client for the web service)
@@ -20,6 +18,9 @@ Task:
 11.	Factorize the YearsExp feature and convert it to numbers in new col. (Bonus ).
 12.	Apply K-means for job title and companies (Bonus).
 
+# Data Set:
+Wuzzuf jobs in Egypt data set at Kaggle
+https://www.kaggle.com/omarhanyy/wuzzuf-jobs
 
 # Team Names: 
 Fatema Samir
